@@ -1,0 +1,88 @@
+{% load static %}
+{% load custom_filters %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Table</title>
+    <link rel="stylesheet" href="{% static 'App/css/attendanceTable.css' %}">
+</head>
+<body>
+    {% csrf_token %}
+    <button id="scrollToBottom" class="scroll-button" onclick="scrollToBottom()">↓</button>
+    <!-- Main Container -->
+    <div class="container" data-teacher-id="{{ request.user.id }}">
+        <!-- Header Section with Section Information and Navigation -->
+        <header class="header">
+            <h2>Section: {{ section.section_name }}</h2>
+            
+            <a href="{% url 'teacher_dashboard' %}" class="back-button">← Back to Dashboard</a>
+        </header>
+        
+        <!-- Date Placeholder -->
+        <div id="current-date" class="date-placeholder">Loading date...</div>
+        
+        <!-- Instructions Section for Users -->
+        <section class="instructions" id="instructions-section">
+            <button class="close-btn" onclick="closeInstructions()">×</button>
+            <h3>Instructions:</h3>
+            <p>This table displays the attendance records for students in section <strong>{{ section.section_name }}</strong>. Below are the actions you can perform:</p>
+            <ul>
+                <li><strong>View Attendance:</strong> Scroll through the table to view students' attendance details.</li>
+                <li><strong>Export Attendance:</strong> Click <em>Export to Excel</em> to download the attendance records.</li>
+                <li><strong>Reset Table:</strong> Clear all attendance records for this section. Confirm action in the popup.</li>
+            </ul>
+        </section>
+
+        <!-- Attendance Table Section -->
+        <section class="table-section">
+            <h3>Attendance List</h3>
+            <p>Capacity: {{ section.student_capacity }}</p>
+            <table id="student-table" data-section-id="{{ section.id }}">
+                <thead>
+                    <tr>
+                        <th>Full Name</th>
+                        <th>Student ID</th>
+                        <th>Email</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for student in students %}
+                    <tr>
+                        <td>{{ student.name }}</td>
+                        <td>{{ student.student_input_id }}</td>
+                        <td>{{ student.email }}</td>
+                        <td>{{ student.created_at|date:"h:i A" }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% for i in blank_rows|range_filter %}
+                    <tr><td colspan="4">&nbsp;</td></tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Action Buttons -->
+        <div class="button-group">
+            <button onclick="window.location.href='{% url 'export_attendance_to_excel' section.id %}'">Export to Excel</button>
+            <button id="reset-table">Reset Table</button>
+        </div>
+
+        <!-- Reset Confirmation Modal -->
+        <div id="resetConfirmModal" class="modal">
+            <div class="modal-content">
+                <h2>Confirm Reset</h2>
+                <p>Are you sure you want to reset attendance for <strong>{{ section.section_name }}</strong>? This action cannot be undone.</p>
+                <div class="modal-buttons">
+                    <button id="confirm-reset" class="btn btn-warning">Confirm Reset</button>
+                    <button id="cancel-reset" class="btn btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button id="scrollToTop" class="scroll-button" onclick="scrollToTop()">↑</button>
+    <script src="{% static 'App/JS/attendanceTable.js' %}"></script>
+</body>
+</html>

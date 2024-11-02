@@ -1,0 +1,15 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\App",
+    "\\App\\migrations",
+    "\\App\\models",
+    "\\App\\static",
+    "\\App\\static\\App",
+    "\\App\\static\\App\\img",
+    "\\App\\templates",
+    "\\App\\templatetags",
+    "\\App\\__pycache__"
+  ],
+  "PreviewInSolutionExplorer": false
+}

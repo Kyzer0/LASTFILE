@@ -1,0 +1,155 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <Name>SystemAttendance</Name>
+    <RootNamespace>SystemAttendance</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <SuppressPackageInstallationPrompt>True</SuppressPackageInstallationPrompt>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>f819dc51-c8c4-42fc-91a7-b4e5892cb5d1</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <ProjectTypeGuids>{5F0BE9CA-D677-4A4D-8806-6076C0FAAD37};{349c5851-65df-11da-9384-00065b846f21};{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <StartupFile>manage.py</StartupFile>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <LaunchProvider>Django launcher</LaunchProvider>
+    <DjangoSettingsModule>SystemAttendance.settings</DjangoSettingsModule>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+    <OutputPath>.</OutputPath>
+    <SuppressCollectPythonCloudServiceFiles>true</SuppressCollectPythonCloudServiceFiles>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\apps.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\forms.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\management\teachers_Account.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\management\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\migration\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\model.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\urls.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\views.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="App\__init__.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="manage.py" />
+    <Compile Include="SystemAttendance\__init__.py" />
+    <Compile Include="SystemAttendance\settings.py" />
+    <Compile Include="SystemAttendance\urls.py" />
+    <Compile Include="SystemAttendance\wsgi.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="db.sqlite3">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="App\static\css\create_section.css" />
+    <Content Include="App\static\css\student_submission.css" />
+    <Content Include="App\static\css\teacher_dashboard.css" />
+    <Content Include="App\static\css\teacher_login.css" />
+    <Content Include="App\static\img\back-logo.png" />
+    <Content Include="App\static\img\create_section.png" />
+    <Content Include="App\static\img\icct logop.png" />
+    <Content Include="App\static\img\login-icon.png" />
+    <Content Include="App\static\js\create_section.js" />
+    <Content Include="App\static\js\student_submission.js" />
+    <Content Include="App\static\js\teacher_dashboard.js" />
+    <Content Include="App\static\js\teacher_login.js" />
+    <Content Include="App\templates\create_section.html" />
+    <Content Include="App\templates\student_submission.html" />
+    <Content Include="App\templates\teacher_dashboard.html" />
+    <Content Include="App\templates\teacher_login.html" />
+    <Content Include="App\templates\base.html" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App\" />
+    <Folder Include="App\management\" />
+    <Folder Include="App\migration\" />
+    <Folder Include="App\static\img\" />
+    <Folder Include="App\templates\" />
+    <Folder Include="App\static\" />
+    <Folder Include="App\static\css\" />
+    <Folder Include="App\static\js\" />
+    <Folder Include="SystemAttendance\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>0.0</Version>
+      <Description>env (Python 3.13 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Django.targets" />
+  <!-- Specify pre- and post-build commands in the BeforeBuild and 
+       AfterBuild targets below. -->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <AutoAssignPort>True</AutoAssignPort>
+          <UseCustomServer>True</UseCustomServer>
+          <CustomServerUrl>http://localhost</CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+        <WebProjectProperties>
+          <StartPageUrl>
+          </StartPageUrl>
+          <StartAction>CurrentPage</StartAction>
+          <AspNetDebugging>True</AspNetDebugging>
+          <SilverlightDebugging>False</SilverlightDebugging>
+          <NativeDebugging>False</NativeDebugging>
+          <SQLDebugging>False</SQLDebugging>
+          <ExternalProgram>
+          </ExternalProgram>
+          <StartExternalURL>
+          </StartExternalURL>
+          <StartCmdLineArguments>
+          </StartCmdLineArguments>
+          <StartWorkingDirectory>
+          </StartWorkingDirectory>
+          <EnableENC>False</EnableENC>
+          <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+</Project>

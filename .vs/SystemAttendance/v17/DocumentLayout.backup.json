@@ -1,0 +1,460 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\views.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\forms.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\forms.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\auth_backends.py||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App\\auth_backends.py||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\backends.py||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App\\backends.py||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\models\\student.py||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App\\models\\student.py||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\models\\timeline.py||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:App\\models\\timeline.py||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\Python Tools\\Microsoft.PythonTools.Django.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\admin.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\manage.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:manage.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\apps.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\apps.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\settings.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:SystemAttendance\\settings.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\student_submission.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\templates\\student_submission.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\management\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\management\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\management\\teachers_Account.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\management\\teachers_Account.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\create_section.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\static\\js\\create_section.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\student_submission.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\static\\js\\student_submission.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\css\\student_submission.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\static\\css\\student_submission.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\teacher_login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\static\\js\\teacher_login.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\css\\teacher_login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\static\\css\\teacher_login.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\teacher_dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\static\\js\\teacher_dashboard.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\teacher_dashboard.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\templates\\teacher_dashboard.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\teacher_login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:App\\templates\\teacher_login.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:SystemAttendance\\urls.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:SystemAttendance\\__init__.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\wsgi.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{F819DC51-C8C4-42FC-91A7-B4E5892CB5D1}|SystemAttendance.pyproj|solutionrelative:SystemAttendance\\wsgi.py||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 26,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "auth_backends.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\auth_backends.py",
+              "RelativeDocumentMoniker": "App\\auth_backends.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\auth_backends.py",
+              "RelativeToolTip": "App\\auth_backends.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-27T01:25:47.822Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "backends.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\backends.py",
+              "RelativeDocumentMoniker": "App\\backends.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\backends.py",
+              "RelativeToolTip": "App\\backends.py",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-27T01:06:06.706Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "student.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\models\\student.py",
+              "RelativeDocumentMoniker": "App\\models\\student.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\models\\student.py",
+              "RelativeToolTip": "App\\models\\student.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-26T18:25:16.683Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "timeline.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\models\\timeline.py",
+              "RelativeDocumentMoniker": "App\\models\\timeline.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\models\\timeline.py",
+              "RelativeToolTip": "App\\models\\timeline.py",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAxwBkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-26T05:26:07.53Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "admin.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\admin.py",
+              "RelativeDocumentMoniker": "App\\admin.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\admin.py",
+              "RelativeToolTip": "App\\admin.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-24T03:00:59.183Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "manage.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\manage.py",
+              "RelativeDocumentMoniker": "manage.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\manage.py",
+              "RelativeToolTip": "manage.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-24T02:41:52.699Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Microsoft.PythonTools.Django.targets",
+              "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\Python Tools\\Microsoft.PythonTools.Django.targets",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\Python Tools\\Microsoft.PythonTools.Django.targets",
+              "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\Python Tools\\Microsoft.PythonTools.Django.targets",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VisualStudio\\v17.0\\Python Tools\\Microsoft.PythonTools.Django.targets",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAUwEgAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003576|",
+              "WhenOpened": "2024-10-24T00:27:34.212Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "apps.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\apps.py",
+              "RelativeDocumentMoniker": "App\\apps.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\apps.py",
+              "RelativeToolTip": "App\\apps.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-23T22:11:45.824Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "__init__.py (App)",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\__init__.py",
+              "RelativeDocumentMoniker": "App\\__init__.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\__init__.py",
+              "RelativeToolTip": "App\\__init__.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-23T22:04:16.944Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "settings.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\settings.py",
+              "RelativeDocumentMoniker": "SystemAttendance\\settings.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\settings.py",
+              "RelativeToolTip": "SystemAttendance\\settings.py",
+              "ViewState": "AgIAABMAAAAAAAAAAAAUwCwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-23T13:21:08.094Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "student_submission.html",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\student_submission.html",
+              "RelativeDocumentMoniker": "App\\templates\\student_submission.html",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\student_submission.html",
+              "RelativeToolTip": "App\\templates\\student_submission.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-23T06:23:57.045Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "__init__.py (App.management)",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\management\\__init__.py",
+              "RelativeDocumentMoniker": "App\\management\\__init__.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\management\\__init__.py",
+              "RelativeToolTip": "App\\management\\__init__.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-23T00:19:48.152Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "teachers_Account.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\management\\teachers_Account.py",
+              "RelativeDocumentMoniker": "App\\management\\teachers_Account.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\management\\teachers_Account.py",
+              "RelativeToolTip": "App\\management\\teachers_Account.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-23T00:19:43.859Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "create_section.js",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\create_section.js",
+              "RelativeDocumentMoniker": "App\\static\\js\\create_section.js",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\create_section.js",
+              "RelativeToolTip": "App\\static\\js\\create_section.js",
+              "ViewState": "AgIAABkAAAAAAAAAAAAAADcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-22T09:44:10.06Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
+              "Title": "student_submission.js",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\student_submission.js",
+              "RelativeDocumentMoniker": "App\\static\\js\\student_submission.js",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\student_submission.js",
+              "RelativeToolTip": "App\\static\\js\\student_submission.js",
+              "ViewState": "AgIAAEkAAAAAAAAAAAAUwJYAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-22T09:41:18.315Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "student_submission.css",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\css\\student_submission.css",
+              "RelativeDocumentMoniker": "App\\static\\css\\student_submission.css",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\css\\student_submission.css",
+              "RelativeToolTip": "App\\static\\css\\student_submission.css",
+              "ViewState": "AgIAAAEBAAAAAAAAAADwvysBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-22T09:37:53.702Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
+              "Title": "teacher_login.js",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\teacher_login.js",
+              "RelativeDocumentMoniker": "App\\static\\js\\teacher_login.js",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\teacher_login.js",
+              "RelativeToolTip": "App\\static\\js\\teacher_login.js",
+              "ViewState": "AgIAADcAAAAAAAAAAAAkwGAAAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-22T09:35:07.157Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 20,
+              "Title": "teacher_login.css",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\css\\teacher_login.css",
+              "RelativeDocumentMoniker": "App\\static\\css\\teacher_login.css",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\css\\teacher_login.css",
+              "RelativeToolTip": "App\\static\\css\\teacher_login.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE4AAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-10-22T09:34:44.031Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "teacher_dashboard.js",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\teacher_dashboard.js",
+              "RelativeDocumentMoniker": "App\\static\\js\\teacher_dashboard.js",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\static\\js\\teacher_dashboard.js",
+              "RelativeToolTip": "App\\static\\js\\teacher_dashboard.js",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAkwNgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-10-22T09:12:57.797Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "forms.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\forms.py",
+              "RelativeDocumentMoniker": "App\\forms.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\forms.py",
+              "RelativeToolTip": "App\\forms.py",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAqwC0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-21T22:55:51.3Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
+              "Title": "teacher_dashboard.html",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\teacher_dashboard.html",
+              "RelativeDocumentMoniker": "App\\templates\\teacher_dashboard.html",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\teacher_dashboard.html",
+              "RelativeToolTip": "App\\templates\\teacher_dashboard.html",
+              "ViewState": "AgIAAJcAAAAAAAAAAAAAABIAAAAkAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-21T15:35:58.769Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 23,
+              "Title": "teacher_login.html",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\teacher_login.html",
+              "RelativeDocumentMoniker": "App\\templates\\teacher_login.html",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\templates\\teacher_login.html",
+              "RelativeToolTip": "App\\templates\\teacher_login.html",
+              "ViewState": "AgIAAB8AAAAAAAAAAAAkwBgAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2024-10-21T15:34:37.906Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "urls.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\urls.py",
+              "RelativeDocumentMoniker": "SystemAttendance\\urls.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\urls.py",
+              "RelativeToolTip": "SystemAttendance\\urls.py",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAewCEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-21T15:34:12.72Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "urls.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\urls.py",
+              "RelativeDocumentMoniker": "App\\urls.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\urls.py",
+              "RelativeToolTip": "App\\urls.py",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAABRAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-21T13:19:35.729Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "views.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\views.py",
+              "RelativeDocumentMoniker": "App\\views.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\App\\views.py",
+              "RelativeToolTip": "App\\views.py",
+              "ViewState": "AgIAABkBAAAAAAAAAAAAACcBAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-21T13:19:11.426Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "__init__.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\__init__.py",
+              "RelativeDocumentMoniker": "SystemAttendance\\__init__.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\__init__.py",
+              "RelativeToolTip": "SystemAttendance\\__init__.py",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-21T12:29:41.485Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "wsgi.py",
+              "DocumentMoniker": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\wsgi.py",
+              "RelativeDocumentMoniker": "SystemAttendance\\wsgi.py",
+              "ToolTip": "C:\\Users\\jervi\\source\\repos\\SystemAttendance\\SystemAttendance\\wsgi.py",
+              "RelativeToolTip": "SystemAttendance\\wsgi.py",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAowB0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
+              "WhenOpened": "2024-10-21T12:29:18.268Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

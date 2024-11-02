@@ -1,0 +1,255 @@
+/* Universal Reset and Font */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+a {
+    color: unset;
+    text-decoration: none;
+}
+
+/* Page Layout */
+body {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.container {
+    min-height: 100vh;
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header */
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    font-size: 24px;
+    color: #4CAF50;
+}
+
+.back-button {
+    color: #4CAF50;
+    font-weight: bold;
+}
+
+/* Instructions Section */
+.instructions {
+    width: 100%;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    padding: 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    position: relative;
+}
+
+.instructions h3 {
+    margin-bottom: 10px;
+}
+
+.instructions ul {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+.instructions .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    color: #888;
+    cursor: pointer;
+}
+
+/* Table Section */
+.table-section {
+    width: 100%;
+    text-align: left;
+}
+
+.table-section h3 {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+#student-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+#student-table th, #student-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+#student-table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+#student-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Action Buttons */
+.button-group {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.button-group button {
+    flex: 1;
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.button-group button:hover {
+    background-color: #45a049;
+}
+
+/* Scroll Buttons */
+.scroll-button {
+    position: fixed;
+    right: 20px;
+    padding: 10px;
+    font-size: 18px;
+    color: white;
+    background-color: #4CAF50;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+#scrollToTop {
+    bottom: 80px;
+}
+
+#scrollToBottom {
+    bottom: 20px;
+}
+
+.scroll-button:hover {
+    opacity: 1;
+}
+
+.date-placeholder {
+    font-size: 1.2em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.styled-date {
+    font-weight: bold;
+    color: #007BFF; 
+    font-size: 1.5em;
+}
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    
+}
+
+.modal-buttons button:hover {
+    background-color: #45a049;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+
+    .header h2 {
+        font-size: 20px;
+    }
+
+    #student-table th, #student-table td {
+        padding: 8px;
+    }
+
+    .button-group button {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .modal-content {
+        width: 90%;
+    }
+}
