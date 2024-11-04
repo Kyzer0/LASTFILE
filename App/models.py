@@ -56,3 +56,12 @@ class Section(models.Model):
         
     def __str__(self):
         return f"{self.section_name} - {self.teacher.first_name} {self.teacher.last_name}"
+    
+
+class TimerStatus(models.Model):
+    teacher = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to the teacher
+    remaining_time = models.IntegerField(default=0)  # Time in seconds
+    is_active = models.BooleanField(default=False)  # Timer active status
+
+    def __str__(self):
+        return f"{self.teacher.username}'s Timer Status"
