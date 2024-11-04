@@ -28,8 +28,15 @@ password.addEventListener('keyup', () => validatePassword(password.value));
 function validateTeacherId() {
     const teacherIdValue = teacherId.value.trim();
 
-    if (teacherIdValue.length == 0) {
+    // Check if the teacher ID is empty
+    if (teacherIdValue.length === 0) {
         teacherIdError.innerHTML = '<p>Fill in your Teacher ID</p>';
+        return false;
+    }
+
+    // Check if the teacher ID contains only numbers
+    if (!/^\d+$/.test(teacherIdValue)) {
+        teacherIdError.innerHTML = '<p>Teacher ID must be a number</p>';
         return false;
     }
 
@@ -145,6 +152,16 @@ document.getElementById('teacherLoginForm').addEventListener('submit', function(
     // Clear previous errors
     document.querySelectorAll('.error-tab').forEach(el => el.innerHTML = '');
     
+    const isTeacherIdValid = validateTeacherId();
+    const isEmailValid = validateEmail();
+    const isPasswordValid = validatePassword(password.value);
+
+    // Check if all fields are valid
+    if (!isTeacherIdValid || !isEmailValid || !isPasswordValid) {
+        submitError.innerHTML = '<p>Please correct the highlighted errors before submitting.</p>';
+        return;
+    }
+
     const formData = new FormData(this);
     const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
 

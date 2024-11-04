@@ -1,5 +1,5 @@
 /* Import Poppins font from Google Fonts */
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 /* Container styles */
@@ -9,11 +9,11 @@
     align-items: center;
     justify-content: center;
     background: #4070f4;
-    padding: 20px; /* Added padding for smaller screens */
 }
 
 .container .wrap-up {
-    max-width: 100%; /* Make it responsive */
+    max-width: 550px;
+    width: 100%;
     background: white;
     padding: 28px;
     border-radius: 8px;
@@ -48,7 +48,7 @@
 }
 
 .container .wrap-up form .input-tab {
-    width: 100%; /* Make input tabs responsive */
+    width: 400px;
     height: 55px;
     margin-top: 25px;
 }
@@ -84,7 +84,7 @@
 
 /* Form button styles */
 .container .wrap-up form .btn-form {
-    width: 100%; /* Make button responsive */
+    width: 400px;
     height: 55px;
     margin-top: 45px;
     margin-bottom: 5px;
@@ -125,8 +125,9 @@
 
 /* Footer styles */
 .container footer {
-    position: relative; /* Changed to relative for better control */
+    position: absolute;
     color: #fff;
+    top: 1000px;
 }
 
 /* Media queries for responsive design */
@@ -134,7 +135,7 @@
 /* For screens smaller than 625px */
 @media screen and (max-width: 625px) {
     .container .wrap-up {
-        max-width: 90%; /* Adjust max-width */
+        max-width: 450px;
     }
     
     /* Hide footer on small screens */
@@ -145,13 +146,17 @@
 
 /* For screens smaller than 500px */
 @media screen and (max-width: 500px) {
+    .container .wrap-up {
+        max-width: 400px;
+    }
+
     .container .wrap-up .header .logo img {
         width: 100px;
     }
 
     .container .wrap-up form .input-tab,
     .container .wrap-up form .btn-form {
-        width: 100%; /* Use full width */
+        width: 340px;
     }
 
     /* Hide footer on small screens */
@@ -162,9 +167,13 @@
 
 /* For screens smaller than 414px */
 @media screen and (max-width: 414px) {
-    .container .wrap-up .input-tab,
+    .container .wrap-up {
+        max-width: 350px;
+    }
+
+    .container .wrap-up form .input-tab,
     .container .wrap-up form .btn-form {
-        width: 100%; /* Use full width */
+        width: 300px;
     }
 
     /* Hide footer on small screens */
@@ -175,6 +184,15 @@
 
 /* For screens smaller than 350px */
 @media screen and (max-width: 350px) {
+    .container .wrap-up {
+        max-width: 300px;
+    }
+
+    .container .wrap-up form .input-tab,
+    .container .wrap-up form .btn-form {
+        width: 270px;
+    }
+
     .container .wrap-up .header .logo img {
         width: 80px;
     }
@@ -184,3 +202,4 @@
         display: none;
     }
 }
+

@@ -42,10 +42,12 @@
                 <div class="error-tab" id="submit-error"></div> <!-- Error message display for form submission errors -->
             </div>
 
-            
         </form>
     </div>
-              
 </div>
+
+{% block javascript %}
+<script src="{% static 'App/JS/teacher_login.js' %}"></script>
+{% endblock %}
 
 {% endblock %}

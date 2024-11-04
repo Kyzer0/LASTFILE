@@ -1,4 +1,5 @@
 {% load static %}
+{% load tz %}
 {% load custom_filters %}
 <!DOCTYPE html>
 <html lang="en">
@@ -31,6 +32,7 @@
             <ul>
                 <li><strong>View Attendance:</strong> Scroll through the table to view students' attendance details.</li>
                 <li><strong>Export Attendance:</strong> Click <em>Export to Excel</em> to download the attendance records.</li>
+                <li><strong>Important note:</strong> Clear the Section first before starting new attendance.</li>
                 <li><strong>Reset Table:</strong> Clear all attendance records for this section. Confirm action in the popup.</li>
             </ul>
         </section>
@@ -45,7 +47,6 @@
                         <th>Full Name</th>
                         <th>Student ID</th>
                         <th>Email</th>
-                        <th>Time</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -54,15 +55,14 @@
                         <td>{{ student.name }}</td>
                         <td>{{ student.student_input_id }}</td>
                         <td>{{ student.email }}</td>
-                        <td>{{ student.created_at|date:"h:i A" }}</td>
                     </tr>
                     {% endfor %}
                     {% for i in blank_rows|range_filter %}
                     <tr><td colspan="4">&nbsp;</td></tr>
                     {% endfor %}
                 </tbody>
-            </table>
-        </section>
+            </section>
+        </table>
 
         <!-- Action Buttons -->
         <div class="button-group">

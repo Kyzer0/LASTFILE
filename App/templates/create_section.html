@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Create Section{% endblock %}
+{% load static %}
 {% block css %}
 <link rel="stylesheet" type="text/css" href="{% static 'App/css/create_section.css' %}">
 {% endblock %}
@@ -36,7 +36,5 @@
         </form>
     </div>
    </div>
-{% endblock %}
-{% block scripts %}
-<script src="{% static 'App/JS/create_section.js' %}"></script>
+   
 {% endblock %}

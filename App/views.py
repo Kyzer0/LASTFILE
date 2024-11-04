@@ -10,9 +10,12 @@ from django.db.models import Q
 from .models import StudentSubmission, Section, Timeline, Student, Attendance, Teacher
 from openpyxl import Workbook
 from datetime import timedelta
-
-import time
-import traceback
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.views.decorators.http import require_POST
+from .models import Timeline
+from django.utils import timezone
+import pytz
 import json
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render, redirect
@@ -65,7 +68,7 @@ class TeacherLoginView(FormView):
         return super().form_invalid(form)
 
 # Purpose: Function that handles student submission form on home page
-# Purpose: Function that handles student submission form on home page
+@csrf_exempt
 def student_submission(request):
     if request.method == 'POST':
         try:
@@ -81,7 +84,7 @@ def student_submission(request):
                     'error': 'Section is full. Maximum capacity reached.'
                 })
             
-            # Rest of your existing submission code
+            # Get additional form data
             student_id = request.POST.get('student_input_id')
             name = request.POST.get('name')
             email = request.POST.get('email')
@@ -93,10 +96,11 @@ def student_submission(request):
                 student_input_id=student_id,
                 email=email,
                 section_id=section_id,
-                teacher_id=teacher_id
+                teacher_id=teacher_id,
+                submission_time=timezone.now()  # Automatically set the submission time
             )
 
-            # Create submission
+            # Create submission record (if needed)
             StudentSubmission.objects.create(
                 student=student,
                 section_id=section_id,
@@ -110,72 +114,57 @@ def student_submission(request):
                 'success': False,
                 'error': str(e)
             })
+    
     # GET request handling...
     teachers = Teacher.objects.all()
     return render(request, 'student_submission.html', {'teachers': teachers})
     
+
 # Purpose: Function that creates and manages timelines for sections
 @login_required
 @require_POST
 def set_timeline(request):
-    try:
-        section_id = request.POST.get('section')
-        duration = int(request.POST.get('duration'))
-        section = get_object_or_404(Section, id=section_id)
-        current_teacher = request.user
+    section_id = request.POST.get('section')
+    duration = int(request.POST.get('duration'))  # Duration in minutes
+    teacher = request.user
 
-        # Deactivate existing timelines
-        Timeline.objects.filter(
-            section=section,
-            teacher=current_teacher,
-            is_active=True
-        ).update(is_active=False)
+    # Create a new timeline entry
+    timeline = Timeline.objects.create(
+        section_id=section_id,
+        duration=duration * 60,  # Convert to seconds
+        teacher=teacher,
+        is_active=True,
+        start_time=timezone.now()
+    )
 
-        # Create new timeline
-        timeline = Timeline.objects.create(
-            section=section,
-            teacher=current_teacher,
-            start_time=timezone.now(),
-            duration=duration,
-            is_active=True
-        )
-
-        print(f"Timeline created: {timeline.id} for section {section_id}")
-        
-        return JsonResponse({
-            'success': True,
-            'duration': duration,
-            'timeline_id': timeline.id,
-            'teacher_id': current_teacher.id,
-            'section_id': section_id
-        })
-    except Exception as e:
-        print(f"Error in set_timeline: {str(e)}")
-        return JsonResponse({
-            'success': False,
-            'error': str(e)
-        }, status=400)
-    
+    return JsonResponse({
+        'success': True,
+        'timeline_id': timeline.id,
+        'duration': duration
+    })
 # Purpose: Function that renders success page after submission
 def submission_success(request):
     return render(request, 'submission_success.html')
 
+
 # Purpose: Function that gets sections for a specific teacher
+
+@login_required
 def get_teacher_sections(request, teacher_id):
     try:
-        teacher = Teacher.objects.get(id=teacher_id)
-        sections = Section.objects.filter(teacher=teacher)
+        # Ensure the logged-in user is the same as the teacher being queried
+        if request.user.id != teacher_id:
+            return JsonResponse({'error': 'Unauthorized access'}, status=403)
+
+        sections = Section.objects.filter(teacher_id=teacher_id)
         
-        # Use a dictionary to ensure unique sections
-        sections_data = {
-            section.id: {
-                'id': section.id,
-                'name': section.section_name
-            } for section in sections
-        }
+        sections_data = [{
+            'id': section.id,
+            'name': section.section_name
+        } for section in sections]
         
-        print(f"Sections found for teacher {teacher_id}: {list(sections_data.values())}")
-        return JsonResponse(list(sections_data.values()), safe=False)
+        print(f"Sections found for teacher {teacher_id}: {sections_data}")  # Debug print
+        return JsonResponse(sections_data, safe=False)
     except Teacher.DoesNotExist:
         return JsonResponse({'error': 'Teacher not found'}, status=404)
     except Exception as e:
@@ -445,6 +434,11 @@ def export_attendance_to_excel(request, section_id):
     # Add section details
     ws.append(["Section Name:", section.section_name])
     ws.append(["Capacity:", section.student_capacity])
+
+    # Get the current date
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    ws.append(["Date:", current_date])  # Add the current date
+
     ws.append([])  # Empty row for spacing
 
     # Add table headers
@@ -458,9 +452,6 @@ def export_attendance_to_excel(request, section_id):
             student.email,
             student.created_at.strftime("%I:%M %p")  # Format time as "h:i A"
         ])
-
-    # Get the current date
-    current_date = datetime.now().strftime("%Y-%m-%d")
 
     # Prepare the HTTP response
     response = HttpResponse(content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
@@ -541,34 +532,26 @@ def teacher_profile(request):
         'sections': request.user.sections.all()  # Include sections in context
     })
 
-# Purpose: Function that gets sections for specific teacher
-def get_teacher_sections(request, teacher_id):
-    try:
-        # Verify teacher exists
-        teacher = Teacher.objects.get(id=teacher_id)
-        
-        # Get sections for this teacher
-        sections = Section.objects.filter(teacher=teacher)
-        
-        # Format section data
-        sections_data = [{
-            'id': section.id,
-            'name': section.section_name
-        } for section in sections]
-        
-        print(f"Sections found for teacher {teacher_id}: {sections_data}")  # Debug print
-        return JsonResponse(sections_data, safe=False)
-        
-    except Teacher.DoesNotExist:
-        return JsonResponse({
-            'error': 'Teacher not found'
-        }, status=404)
-        
-    except Exception as e:
-        print(f"Error fetching sections: {str(e)}")  # Debug print
-        return JsonResponse({
-            'error': 'Error fetching sections'
-        }, status=500)
+# Purpose: Function that gets current date
+@login_required(login_url='teacher_login')
+def get_current_date(request):
+    current_date = datetime.now().strftime("%Y-%m-%d")  # Format as YYYY-MM-DD
+    return JsonResponse({'current_date': current_date})
+
+
+#create time zone api
+def current_time(request):
+    # Set the timezone to Philippine Time (PHT)
+    pht = pytz.timezone('Asia/Manila')
+    # Get the current time in PHT
+    current_time = timezone.now().astimezone(pht)
+    # Format the time to return only the time (e.g., "02:30 PM")
+    formatted_time = current_time.strftime('%I:%M %p')  # Example format: 02:30 PM
+
+    return JsonResponse({'current_time': formatted_time})
+
+
+
 
 # Purpose: Function that checks if student ID exists
 def check_student_id(request):
@@ -608,7 +591,43 @@ def check_timeline_status(request):
             'error': 'No active timeline found'
         })
 
-# Purpose: Function that tests timeline functionality
+
+ #stop timer
+
+@csrf_exempt  # Use with caution; consider using CSRF tokens for security
+@require_POST
+def get_timer_status(request):
+    teacher_id = request.GET.get('teacher_id')
+    section_id = request.GET.get('section_id')
+
+    try:
+        timeline = Timeline.objects.get(teacher_id=teacher_id, section_id=section_id, is_active=True)
+        remaining_time = timeline.get_remaining_time()
+        return JsonResponse({
+            'success': True,
+            'remaining_time': remaining_time,
+            'is_active': timeline.is_active
+        })
+    except Timeline.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'No active timeline found.'})
+    
+@csrf_exempt 
+@require_POST
+def update_timer_status(request):
+    try:
+        data = json.loads(request.body)
+        section_id = data.get('section_id')
+        teacher_id = data.get('teacher_id')
+        is_active = data.get('is_active')
+
+        # Update the timer status in the database
+        Timeline.objects.filter(section_id=section_id, teacher_id=teacher_id).update(is_active=is_active)
+
+        return JsonResponse({'success': True})
+    except Exception as e:
+        return JsonResponse({'success': False, 'error': str(e)}, status=400)
+    
+    
 @login_required
 def test_timeline(request):
     """Endpoint for testing timeline functionality"""
@@ -723,3 +742,31 @@ def attendance_table(request, section_id):
 def get_current_date(request):
     current_date = datetime.now().strftime("%Y-%m-%d")  # Format as YYYY-MM-DD
     return JsonResponse({'current_date': current_date})
+
+
+#create time zone api
+
+def current_time(request):
+    # Set the timezone to Philippine Time (PHT)
+    pht = pytz.timezone('Asia/Manila')
+    # Get the current time in PHT
+    current_time = timezone.now().astimezone(pht)
+    # Format the time to return only the time (e.g., "02:30 PM")
+    formatted_time = current_time.strftime('%I:%M %p')  # Example format: 02:30 PM
+
+    return JsonResponse({'current_time': formatted_time})
+
+def get_timer_status(request):
+    teacher_id = request.GET.get('teacher_id')
+    section_id = request.GET.get('section_id')
+
+    try:
+        timeline = Timeline.objects.get(teacher_id=teacher_id, section_id=section_id, is_active=True)
+        remaining_time = timeline.get_remaining_time()
+        return JsonResponse({
+            'success': True,
+            'remaining_time': remaining_time,
+            'is_active': timeline.is_active
+        })
+    except Timeline.DoesNotExist:
+        return JsonResponse({'success': False, 'message': 'No active timeline found.'})

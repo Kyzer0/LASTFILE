@@ -136,6 +136,14 @@ a{
     justify-content: center;
     cursor: pointer;
 }
+/* Logout button container */
+.container .side-bar .logout{
+    margin-bottom: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
 
 /* Logout button icon */
 .container .side-bar .logout img{
@@ -264,11 +272,12 @@ a{
 }
 
 /* Timer button container */
-.container .boards .set-timeline .timer-container .btn{
+.container .boards .set-timeline .timer-container .btn-stop .time .btn{
     display: flex;
     gap: 20px;
     justify-content: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
+    cursor: pointer;
 }
 
 /* Timer control buttons */
@@ -282,11 +291,14 @@ a{
     border-radius: 5px;
     font-size: 16px;
     font-weight: 500;
+    
+  
 }
 
 /* Timer display */
 .container .boards .set-timeline .timer-container  .display-time{
     font-size: 30px;
+    
 }
 
 /* Section creation form container */

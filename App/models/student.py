@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-
+from django.utils import timezone
 # Student model to store information about students and their relationships with teachers and sections
 class Student(models.Model):
     # Student's full name
@@ -15,7 +15,8 @@ class Student(models.Model):
     section = models.ForeignKey('Section', on_delete=models.SET_NULL, null=True)
     # Timestamp for when student record was created
     created_at = models.DateTimeField(auto_now_add=True)
-
+    # New field for submission time
+    submission_time = models.DateTimeField(null=True, blank=True)  
     # String representation of student object returns student's name
     def __str__(self):
         return self.name

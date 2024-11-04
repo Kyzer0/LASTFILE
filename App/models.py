@@ -3,13 +3,13 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 from datetime import timedelta
 from django.conf import settings
-# This file can be left empty or you can keep the imports if needed elsewhere
 from .models.section import Section
 from .models.student import Student
 from .models.attendance import Attendance
 from .models.student_submission import StudentSubmission
 from .models.teacher import Teacher
 from .models.timeline import Timeline
+from django.contrib.auth.models import User
 
 print("All models imported")
 #teacher model
@@ -57,11 +57,3 @@ class Section(models.Model):
     def __str__(self):
         return f"{self.section_name} - {self.teacher.first_name} {self.teacher.last_name}"
     
-
-class TimerStatus(models.Model):
-    teacher = models.ForeignKey(User, on_delete=models.CASCADE)  # Link to the teacher
-    remaining_time = models.IntegerField(default=0)  # Time in seconds
-    is_active = models.BooleanField(default=False)  # Timer active status
-
-    def __str__(self):
-        return f"{self.teacher.username}'s Timer Status"

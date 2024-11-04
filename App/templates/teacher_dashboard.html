@@ -89,38 +89,41 @@
             </div>
         </div>
 
-        <!-- Timeline setting form container -->
-        <div id="board-set-timeline" class="set-timeline" style="display: none;">
-            <div class="timer-container">
-                <!-- Timeline header with image -->
-                <div class="header">
-                    <img src="{% static 'img/timeline.png' %}" alt="">
-                </div>
-                <!-- Timeline setting form -->
-                <form method="POST" id="set-timeline-form" action="{% url 'set_timeline' %}">
-                    {% csrf_token %}
-                    <input type="hidden" name="teacher" value="{{ request.user.id }}">
-                    <div class="form-group">
-                        <label for="section">Select Section:</label>
-                        <select name="section" id="section" required>
-                            {% for section in sections %}
-                                <option value="{{ section.id }}">{{ section.section_name }}</option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="duration">Duration (in minutes):</label>
-                        <input type="number" name="duration" id="duration" required min="1">
-                    </div>
-                    <div class="btn">
-                        <button class="btn-start" type="submit" id="start-timer">Start Timer</button>
-                    </div>
-                </form>
-                <!-- Timer display container -->
-                <div class="display-time" id="display">00:00:00</div>
-                <p id="timer-status"></p>
+       <!-- Timeline setting form container -->
+    <div id="board-set-timeline" class="set-timeline" style="display: none;">
+        <div class="timer-container">
+            <!-- Timeline header with image -->
+            <div class="header">
+                <img src="{% static 'img/timeline.png' %}" alt="">
             </div>
+            <!-- Timeline setting form -->
+             <!-- Timer display container -->
+             <div class="display-time" style="margin-bottom: 30px; font-size: 3em;" id="display">00:00:00</div>
+             <p id="timer-status"></p>
+            <form method="POST" id="set-timeline-form" action="{% url 'set_timeline' %}">
+                {% csrf_token %}
+                <input type="hidden" name="teacher" value="{{ request.user.id }}">
+                <div class="form-group">
+                    <label for="section">Select Section:</label>
+                    <select style="height: 3em; width: 10em; margin-bottom: 10px;" name="section" id="section" required>
+                        {% for section in sections %}
+                            <option value="{{ section.id }}">{{ section.section_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="duration">Duration (in minutes):</label>
+                    <input type="number" name="duration" id="duration" required min="1">
+                </div>
+                <div class="btn" style="margin-top: 10px; ">
+                    <button class="btn-start" style="background-color: green; cursor: pointer;" type="submit" id="start-timer">Start Timer</button>
+                    <button class="btn-stop" type="button" id="stop-timer" style="cursor: pointer;">Stop Timer</button>
+                    <button class="btn-continue" type="button" id="continue-timer" style="cursor: pointer; display: none; background-color: yellow; color: black ;">Continue Timer</button>
+                    <button class="btn-refresh" style="cursor: pointer; background-color: red;" type="button" id="refresh-timer">Reset Timer</button>
+                </div>
+            </form>
         </div>
+    </div>
 
         <!-- Section management container -->
         <div id="board-set-manage-section" class="set-manage-section" style="display: none;">
@@ -141,8 +144,8 @@
                     </p>
                     <!-- Section management buttons -->
                     <div class="options">
-                        <button class="delete-section" data-section-id="{{ section.id }}">Delete</button>
-                        <button class="update-section" 
+                        <button class="delete-section" style="cursor: pointer;" data-section-id="{{ section.id }}">Delete</button>
+                        <button class="update-section" style="cursor: pointer;"
                                 data-section-id="{{ section.id }}"
                                 data-capacity="{{ section.student_capacity }}">Update</button>
                     </div>

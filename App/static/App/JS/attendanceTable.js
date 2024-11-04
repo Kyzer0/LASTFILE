@@ -162,3 +162,36 @@ document.addEventListener('DOMContentLoaded', function() {
 
     
 });
+
+
+
+// Function to fetch the current time from the API
+// Function to fetch the current time from the API
+function fetchCurrentTime() {
+    fetch(`/api/current_time/?_=${new Date().getTime()}`) // Add a timestamp to prevent caching
+        .then(response => response.json())
+        .then(data => {
+            console.log('Fetched current time:', data.current_time);
+            updateAttendanceTable(data.current_time);
+        })
+        .catch(error => {
+            console.error('Error fetching current time:', error);
+        });
+}
+
+// Function to update the attendance table
+function updateAttendanceTable(currentTime) {
+    const attendanceTable = document.getElementById('attendance-table');
+    
+    // Loop through each row in the attendance table
+    for (let row of attendanceTable.rows) {
+        const timeCell = row.cells[row.cells.length - 1]; // Adjust index as needed
+        timeCell.textContent = currentTime; // Update the cell with the current time
+    }
+}
+
+
+// Call the fetchCurrentTime function when the page loads
+document.addEventListener('DOMContentLoaded', fetchCurrentTime);
+
+setInterval(fetchCurrentTime, 300000);

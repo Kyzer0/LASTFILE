@@ -1,5 +1,8 @@
 // Main script initialization message
+
+
 console.log("Teacher dashboard script loaded");
+
 
 // Initialize sidebar functionality and state management when DOM loads
 document.addEventListener('DOMContentLoaded', function() {
@@ -89,100 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Show dashboard by default
     showBoard(boardDashboard);
 
-    // Timer functionality setup
-    const setTimelineForm = document.getElementById('set-timeline-form');
-    const timerDisplay = document.getElementById('display');
-    const timerStatus = document.getElementById('timer-status');
-    const teacherId = document.querySelector('input[name="teacher"]').value;
-    let currentInterval;
-
-    // Check if there's an existing timer for the section
-    function checkExistingTimer() {
-        const sectionId = document.getElementById('section').value;
-        fetch(`/get_remaining_time/?section_id=${sectionId}&teacher_id=${teacherId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success && data.remaining_time > 0) {
-                    startTimer(data.remaining_time, data.timeline_id);
-                    timerStatus.textContent = 'Timeline active';
-                    // Store timer state
-                    localStorage.setItem('timerState', JSON.stringify({
-                        timelineId: data.timeline_id,
-                        endTime: new Date().getTime() + (data.remaining_time * 1000),
-                        duration: data.duration
-                    }));
-                } else {
-                    timerDisplay.textContent = "00:00:00";
-                    timerStatus.textContent = "No active timeline";
-                    localStorage.removeItem('timerState');
-                }
-            })
-            .catch(error => console.error("Error fetching remaining time:", error));
-    }
-
-    // Start countdown timer with given duration
-    function startTimer(duration, timelineId) {
-        if (currentInterval) {
-            clearInterval(currentInterval);
-        }
-
-        const endTime = new Date().getTime() + (duration * 1000);
-        
-        // Update timer display every second
-        function updateDisplay() {
-            const now = new Date().getTime();
-            const distance = endTime - now;
-
-            if (distance < 0) {
-                clearInterval(currentInterval);
-                timerDisplay.textContent = "00:00:00";
-                timerStatus.textContent = "Timeline closed";
-                localStorage.removeItem('timerState');
-                return;
-            }
-
-            const hours = Math.floor(distance / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-            timerDisplay.textContent = 
-                `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-        }
-
-        currentInterval = setInterval(updateDisplay, 1000);
-        updateDisplay();
-    }
-
-    // Initialize timer on page load
-    checkExistingTimer();
-
-    // Handle timeline form submission
-    setTimelineForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        const formData = new FormData(this);
-
-        fetch(this.action, {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'X-CSRFToken': formData.get('csrfmiddlewaretoken')
-            }
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                startTimer(data.duration * 60, data.timeline_id);
-                timerStatus.textContent = 'Timeline active';
-            } else {
-                timerStatus.textContent = 'Failed to set timeline: ' + (data.error || 'Unknown error');
-            }
-        })
-        .catch(error => {
-            console.error("Error:", error);
-            timerStatus.textContent = 'Error setting timeline: ' + error.message;
-        });
-    });
-
+   
     // Initialize teacher profile update functionality
     document.addEventListener('DOMContentLoaded', function() {
         const updateProfileForm = document.getElementById('update-profile-form');
@@ -671,66 +581,224 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Update timer display with countdown
-function updateTimerDisplay(startTime, duration) {
-    const endTime = new Date(startTime).getTime() + duration * 60000;
-    const timerDisplay = document.getElementById('display');
 
-    function update() {
-        const now = new Date().getTime();
-        const distance = endTime - now;
+//Summary of Timeline
 
-        if (distance < 0) {
-            clearInterval(interval);
-            timerDisplay.textContent = "00:00:00";
-            return;
-        }
+// Summary of Timeline
 
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+// Timer functionality setup
+const setTimelineForm = document.getElementById('set-timeline-form');
+const timerDisplay = document.getElementById('display');
+const timerStatus = document.getElementById('timer-status');
+const teacherId = document.querySelector('input[name="teacher"]').value;
+let timerInterval;
+let remainingTime; // in seconds
+let timerState = 'stopped'; // Possible states: 'running', 'stopped'
 
-        timerDisplay.textContent = `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-    }
-
-    const interval = setInterval(update, 1000);
-    update();
+// Function to save timer state to local storage
+function saveTimerState() {
+    localStorage.setItem('timerState', JSON.stringify({
+        remainingTime: remainingTime,
+        isActive: timerState === 'running'
+    }));
 }
 
-//ajax polling
+// Function to update the display
+function updateDisplay() {
+    if (remainingTime < 0) {
+        remainingTime = 0; // Prevent negative time
+    }
+    const hours = String(Math.floor(remainingTime / 3600)).padStart(2, '0');
+    const minutes = String(Math.floor((remainingTime % 3600) / 60)).padStart(2, '0');
+    const seconds = String(remainingTime % 60).padStart(2, '0');
+    timerDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+}
+
+// Function to start the timer
+function startTimer(duration) {
+    if (timerState === 'running') return; // Prevent starting if already running
+
+    remainingTime = duration; // Set remaining time to the provided duration
+    timerState = 'running'; // Update state
+
+    const endTime = Date.now() + remainingTime * 1000; // Calculate end time
+
+    // Update timer status in the backend
+    updateTimerStatus(true) // Set is_active to true
+        .then(() => {
+            console.log('Timer status updated successfully in the backend.');
+        })
+        .catch(error => {
+            console.error('Failed to update timer status in the backend:', error);
+        });
+
+    timerInterval = setInterval(() => {
+        remainingTime = Math.max(0, Math.floor((endTime - Date.now()) / 1000)); // Update remaining time
+        if (remainingTime <= 0) {
+            clearInterval(timerInterval);
+            timerDisplay.textContent = "00:00:00";
+            timerStatus.textContent = "Timer finished!";
+            timerState = 'stopped'; // Reset state
+            updateTimerStatus(false); // Set is_active to false when finished
+            resetButtons(); // Reset button visibility
+            return;
+        }
+        updateDisplay();
+    }, 1000);
+
+    // Update button visibility
+    document.getElementById('start-timer').style.display = 'none'; // Hide start button
+    document.getElementById('stop-timer').style.display = 'inline-block'; // Show stop button
+    document.getElementById('continue-timer').style.display = 'none'; // Hide continue button
+}
+
+// Function to stop the timer
+function stopTimer() {
+    if (timerState !== 'running') return; // Only stop if running
+
+    clearInterval(timerInterval);
+    timerState = 'stopped'; // Update state
+
+    // Update timer status in the backend
+    updateTimerStatus(false) // Set is_active to false
+        .then(() => {
+            console.log('Timer status updated successfully in the backend.');
+        })
+        .catch(error => {
+            console.error('Failed to update timer status in the backend:', error);
+        });
+
+    // Update button visibility
+    document.getElementById('start-timer').style.display = 'inline-block'; // Show start button
+    document.getElementById('stop-timer').style.display = 'none'; // Hide stop button
+    document.getElementById('continue-timer').style.display = 'inline-block'; // Show continue button
+}
+
+// Function to continue the timer
+function continueTimer() {
+    if (timerState === 'running') return; // Only continue if stopped
+
+    // Calculate remaining time and start the timer again
+    startTimer(remainingTime); // Resume timer with remaining time
+}
+
+
+// Function to reset button visibility when timer finishes
+function resetButtons() {
+    document.getElementById('start-timer').style.display = 'inline-block'; // Show start button
+    document.getElementById('stop-timer').style.display = 'none'; // Hide stop button
+    document.getElementById('continue-timer').style.display = 'none'; // Hide continue button
+}
+
+// Function to update the timer status in the backend
+function updateTimerStatus(isActive) {
+    const sectionId = document.getElementById('section').value; // Get the current section ID
+    return fetch(`/update_timer_status/`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: JSON.stringify({
+            section_id: sectionId,
+            teacher_id: teacherId,
+            is_active: isActive // Set isActive based on the function call
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log('Timer status updated successfully:', data);
+        } else {
+            console.error('Error updating timer status:', data.error);
+            throw new Error(data.error); // Handle error
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred while updating the timer status. Please try again.');
+    });
+}
+
+// On page load, check for existing timer state
 document.addEventListener('DOMContentLoaded', function() {
-    const sectionId = document.getElementById('section').value;
-    const teacherId = document.querySelector('input[name="teacher"]').value;
-    const timerDisplay = document.getElementById('display');
-    const timerStatus = document.getElementById('timer-status');
+    const savedState = localStorage.getItem('timerState');
+    if (savedState) {
+        const state = JSON.parse(savedState);
+        remainingTime = state.remainingTime;
 
-    function pollTimelineStatus() {
-        fetch(`/check_timeline_status/?section_id=${sectionId}&teacher_id=${teacherId}`)
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    if (data.is_active) {
-                        timerDisplay.textContent = formatTime(data.remaining_time);
-                        timerStatus.textContent = 'Timeline active';
-                    } else {
-                        timerDisplay.textContent = "00:00:00";
-                        timerStatus.textContent = "No active timeline";
-                    }
-                } else {
-                    timerStatus.textContent = data.error;
-                }
-            })
-            .catch(error => console.error("Error polling timeline status:", error));
+        // Ensure remainingTime is a valid number
+        if (typeof remainingTime !== 'number' || remainingTime < 0) {
+            remainingTime = 0; // Reset to 0 if invalid
+        }
+
+        // Update the display with the remaining time
+        updateDisplay();
+
+        // Check if the timer was active or stopped
+        if (state.isActive) {
+            startTimer(remainingTime); // Resume timer if it was active
+        } else {
+            // If the timer was stopped, show the continue button
+            document.getElementById('continue-timer').style.display = 'inline-block'; // Show continue button
+            document.getElementById('start-timer').style.display = 'none'; // Hide start button
+            document.getElementById('stop-timer').style.display = 'none'; // Hide stop button
+        }
+    } else {
+        // Initialize the display to 00:00:00 if no saved state
+        timerDisplay.textContent = "00:00:00";
     }
-
-    function formatTime(seconds) {
-        const hours = Math.floor(seconds / 3600);
-        const minutes = Math.floor((seconds % 3600) / 60);
-        const secs = seconds % 60;
-        return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
-    }
-
-    // Start polling every 30 seconds
-    setInterval(pollTimelineStatus, 30000);
-    pollTimelineStatus(); // Initial call to set the status immediately
 });
+
+// Set up event listeners for buttons
+document.getElementById('set-timeline-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const duration = parseInt(document.getElementById('duration').value) * 60; // Convert minutes to seconds
+    startTimer(duration); // Start the timer
+});
+
+document.getElementById('stop-timer').addEventListener('click', stopTimer); // Call stopTimer when the stop button is clicked
+document.getElementById('continue-timer').addEventListener('click', continueTimer); // Call continueTimer when the continue button is clicked
+
+// Event listener for the Reset Timer button
+document.getElementById('refresh-timer').addEventListener('click', () => {
+    timerDisplay.textContent = "00:00:00"; // Reset display
+    timerStatus.textContent = "Timer reset"; // Optional status update
+    remainingTime = 0; // Reset remaining time
+    localStorage.removeItem('timerState'); // Clear saved state
+    resetButtons(); // Reset button visibility
+    document.getElementById('duration').value = ''; // Clear the duration input field
+});
+
+// AJAX Polling Function
+function pollTimerStatus() {
+    fetch(`/get_timer_status/?teacher_id=${teacherId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update the timer state based on the response
+                remainingTime = data.remaining_time; // Update remaining time
+                timerState = data.is_active ? 'running' : 'stopped'; // Update timer state
+
+                // Update the display
+                updateDisplay();
+
+                // Update button visibility based on the timer state
+                if (timerState === 'running') {
+                    document.getElementById('start-timer').style.display = 'none';
+                    document.getElementById('stop-timer').style.display = 'inline-block';
+                    document.getElementById('continue-timer').style.display = 'none';
+                } else {
+                    document.getElementById('start-timer').style.display = 'inline-block';
+                    document.getElementById('stop-timer').style.display = 'none';
+                    document.getElementById('continue-timer').style.display = 'inline-block';
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching timer status:', error);
+        });
+}
+
+// Start polling every 5 seconds
+setInterval(pollTimerStatus, 5000);

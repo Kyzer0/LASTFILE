@@ -13,7 +13,7 @@ a {
 
 /* Page Layout */
 body {
-    background-color: #f0f0f0;
+    background-color: wheat;
     color: #333;
 }
 
@@ -148,7 +148,7 @@ body {
 /* Scroll Buttons */
 .scroll-button {
     position: fixed;
-    right: 20px;
+    right: 30px;
     padding: 10px;
     font-size: 18px;
     color: white;
@@ -162,11 +162,11 @@ body {
 }
 
 #scrollToTop {
-    bottom: 80px;
+    bottom: 5px;
 }
 
 #scrollToBottom {
-    bottom: 20px;
+    bottom: 10px;
 }
 
 .scroll-button:hover {
@@ -186,7 +186,7 @@ body {
 }
 /* Modal */
 .modal {
-    display: none;
+    display: none; /* Initially hidden */
     position: fixed;
     top: 0;
     left: 0;
@@ -197,6 +197,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
 }
 
 .modal-content {
@@ -204,6 +205,8 @@ body {
     padding: 20px;
     border-radius: 8px;
     max-width: 400px;
+    width: 100%; /* Ensures responsiveness */
+    box-sizing: border-box;
     text-align: center;
 }
 
@@ -223,12 +226,12 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s;
-    
 }
 
 .modal-buttons button:hover {
     background-color: #45a049;
 }
+
 
 /* Responsive Design */
 @media (max-width: 600px) {

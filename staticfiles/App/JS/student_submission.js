@@ -70,6 +70,45 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    document.addEventListener('DOMContentLoaded', function() {
+        const teacherSelect = document.getElementById('teacher-select');
+        const sectionSelect = document.getElementById('section-select');
+    
+        teacherSelect.addEventListener('change', function() {
+            const teacherId = this.value; // Get the selected teacher ID
+    
+            if (teacherId) {
+                fetch(`/get_teacher_sections/${teacherId}/`) // Adjust the URL as needed
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        sectionSelect.innerHTML = ''; // Clear previous options
+                        if (data.length > 0) {
+                            data.forEach(section => {
+                                const option = document.createElement('option');
+                                option.value = section.id;
+                                option.textContent = section.section_name;
+                                sectionSelect.appendChild(option);
+                            });
+                        } else {
+                            sectionSelect.innerHTML = '<option value="">No sections available</option>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error fetching sections:', error);
+                        sectionSelect.innerHTML = '<option value="">Error fetching sections</option>';
+                    });
+            } else {
+                sectionSelect.innerHTML = '<option value="">First select a teacher</option>'; // Reset if no teacher is selected
+            }
+        });
+    });
+
+
     // Regular expression patterns for input validation
     const patterns = {
         fullName: /^[A-Za-z\s'-]{2,50}$/,
@@ -183,44 +222,44 @@ document.addEventListener('DOMContentLoaded', function() {
             return false;
         }
     }
+    
 
     // Handler for form submission with validation and timeline check
     form.addEventListener('submit', async function(e) {
         e.preventDefault();
         console.log('Form submission started');
-
-        if (validateForm()) {
-            const teacherId = teacherSelect.value;
-            const sectionId = sectionSelect.value;
-
-            const isTimelineActive = await checkTimelineStatus(teacherId, sectionId);
+    
+        const teacherId = teacherSelect.value;
+        const sectionId = sectionSelect.value;
+    
+        const isTimelineActive = await checkTimelineStatus(teacherId, sectionId);
+        
+        if (isTimelineActive) {
+            const formData = new FormData(this);
             
-            if (isTimelineActive) {
-                const formData = new FormData(this);
-                
-                try {
-                    const response = await fetch('/', {
-                        method: 'POST',
-                        body: formData,
-                        headers: {
-                            'X-CSRFToken': getCookie('csrftoken')
-                        }
-                    });
-                    
-                    const data = await response.json();
-                    console.log('Submission response:', data);
-
-                    if (data.success) {
-                        // Redirect to success page
-                        window.location.href = '/submission_success/';
-                    } else {
-                        showModal(data.error || 'Submission failed');
+            try {
+                const response = await fetch('/', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-CSRFToken': getCookie('csrftoken')
                     }
-                } catch (error) {
-                    console.error('Submission error:', error);
-                    showModal('An error occurred during submission');
+                });
+                
+                const data = await response.json();
+                console.log('Submission response:', data);
+    
+                if (data.success) {
+                    window.location.href = '/submission_success/';
+                } else {
+                    showModal(data.error || 'Submission failed');
                 }
+            } catch (error) {
+                console.error('Submission error:', error);
+                showModal('An error occurred during submission');
             }
+        } else {
+            showModal('The timer is not active. Please start the timer before submitting.');
         }
     });
 
@@ -422,3 +461,51 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
 });
+
+///function for timer
+// Function to submit student information
+function submitStudentInfo() {
+    const studentData = {
+        name: document.getElementById('student-name').value,
+        student_input_id: document.getElementById('student-id').value,
+        email: document.getElementById('student-email').value,
+    };
+
+    fetch('/api/submit_student_info/', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'X-CSRFToken': getCookie('csrftoken'),  // Include CSRF token if needed
+        },
+        body: JSON.stringify(studentData),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            console.log(data.message);
+            // Optionally, refresh the attendance table or update the UI
+        } else {
+            console.error(data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error submitting student information:', error);
+    });
+}
+
+// Function to get CSRF token (if needed)
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = cookies[i].trim();
+            // Check if this cookie string begins with the name we want
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
